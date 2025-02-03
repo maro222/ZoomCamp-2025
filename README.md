@@ -7,8 +7,8 @@
 ----
 
 ### Second question:
-##### answer: green_tripdata_2020-04.csv
-##### this how it's wrutten as code in yml file (file: "{{inputs.taxi}}_tripdata_{{trigger.date | date('yyyy-MM')}}.csv")
+answer: green_tripdata_2020-04.csv
+Explain: This how it's wrutten as code in yml file (file: "{{inputs.taxi}}_tripdata_{{trigger.date | date('yyyy-MM')}}.csv")
 
 
 ### Third question:
