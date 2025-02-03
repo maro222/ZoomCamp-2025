@@ -1,10 +1,10 @@
 # HWweek2-kestra-orchestration
 
 ### First question:
-##### answer: 128.3 MB
-##### We commented the year and month inputs and use triggers instead and do backfills to the specific date (year:2020, month:12) and also commented the purgefiles property to be able to see the size of file in kestra outputfiles
+###### answer: 128.3 MB
+###### We commented the year and month inputs and use triggers instead and do backfills to the specific date (year:2020, month:12) and also commented the purgefiles property to be able to see the size of file in kestra outputfiles
 
-
+----
 
 ### Second question:
 ##### answer: green_tripdata_2020-04.csv
