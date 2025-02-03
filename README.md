@@ -31,5 +31,9 @@
 -----
 
 ### Sixth Question:
-##### answer: Add a timezone property set to America/New_York in the Schedule trigger configuration
-##### there is no location property in Schedule trigger configuration so we used timezone and set it to specific region(newyork)
+###### answer: Add a timezone property set to America/New_York in the Schedule trigger configuration
+###### there is no location property in Schedule trigger configuration so we used timezone and set it to specific region(New-York)
+
+
+
+## NOTE: all these question are answered by .yml Files
