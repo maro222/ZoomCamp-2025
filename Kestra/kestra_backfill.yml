@@ -16,10 +16,11 @@ inputs:
     defaults: 'green'
     displayName: 'select taxi type'
 
+  # We leverage the power of backfill, so we don't need thes variables any more
   # - id: year
   #   type: SELECT
   #   displayName: Select year
-  #   values: ["2019", "2020"]
+  #   values: ["2019", "2020","2021"]
   #   defaults: "2019"
 
   # - id: month
