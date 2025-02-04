@@ -1,0 +1,38 @@
+id: subflow
+namespace: zoomcamp
+
+inputs:
+  - id: month
+    type: STRING
+
+  - id: taxi
+    type: STRING
+  
+  
+
+tasks:
+  - id: set-variable-file
+    type: io.kestra.plugin.core.debug.Return
+    format: "{{inputs.taxi}}_tripdata_2021-{{inputs.month}}.csv"
+
+  - id: extract
+    type: io.kestra.plugin.scripts.shell.Commands
+    outputFiles:
+      - "*.csv"
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process
+    commands:
+      - wget -qO- https://github.com/DataTalksClub/nyc-tlc-data/releases/download/{{inputs.taxi}}/{{outputs['set-variable-file'].value}}.gz | gunzip > {{outputs['set-variable-file'].value}}
+
+  - id: set-variable-data
+    type: io.kestra.plugin.core.debug.Return
+    format: "{{outputs.extract.outputFiles[inputs.taxi ~ '_tripdata_2021-' ~ inputs.month ~ '.csv']}}"
+
+outputs:
+  - id: subflow-file-output
+    type: STRING
+    value: "{{outputs['set-variable-file']['value'] }}"
+
+  - id: subflow-data-output
+    type: STRING
+    value: "{{ outputs['set-variable-data']['value']}}"
