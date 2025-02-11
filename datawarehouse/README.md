@@ -21,7 +21,7 @@ FROM `taxi_tripdata.external_yellow_tripdata`;
 ``` 
 select count(*) as NOofRecodrs from taxi_tripdata.external_yellow_tripdata
  ```
-----
+
 ### 2)  0 MB for the External Table and 155.12 MB for the Materialized Table
 ```
  SELECT 
@@ -32,14 +32,14 @@ SELECT
    COUNT(DISTINCT PULocationID) as count_for_regular_table
 from `zoomcamp-week3.taxi_tripdata.regular_yellow_tripdata` ;
 ```
-----
+
 ### 3)  BigQuery is a columnar database, and it only scans the specific columns requested in the query. Querying two columns (PULocationID, DOLocationID) requires reading more data than querying one column (PULocationID), leading to a higher estimated number of bytes processed.
 ```
 SELECT 
    PULocationID ,DOLocationID
 from `zoomcamp-week3.taxi_tripdata.regular_yellow_tripdata`
 ```
------
+
 ### 4)  8,333
 ```
  select 
@@ -47,7 +47,7 @@ from `zoomcamp-week3.taxi_tripdata.regular_yellow_tripdata`
 from `zoomcamp-week3.taxi_tripdata.external_yellow_tripdata`
 where fare_amount = 0
 ```
-----
+
 ### 5)  Partition by tpep_dropoff_datetime and Cluster on VendorID
 ```
 create or replace table `zoomcamp-week3.taxi_tripdata.partitioned_clustered_yellow_tripdata`
@@ -57,7 +57,7 @@ AS
 select * 
 from `zoomcamp-week3.taxi_tripdata.external_yellow_tripdata`
 ```
-----
+
 ### 6)  310.24 MB for non-partitioned table and 26.84 MB for the partitioned table
 ```
 select VendorID
@@ -78,3 +78,10 @@ This allows BigQuery to query data directly from the storage bucket without impo
  clustering is unnecessary:
 ❌ Small datasets where full table scans are already fast.
 ❌ If queries do not filter or group by clustered columns.
+
+
+### 9) 0 bytes, 
+### BigQuery Query Optimization (Metadata-only Query)
+BigQuery does not scan data for certain queries like COUNT(*) on native tables.
+BigQuery stores metadata (e.g., row count) separately and fetches it without scanning actual data.
+This optimization applies to BigQuery-managed tables (regular/materialized) but not external tables.
