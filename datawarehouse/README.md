@@ -33,8 +33,9 @@ SELECT
 from `zoomcamp-week3.taxi_tripdata.regular_yellow_tripdata` ;
 ```
 ----
-# 3)  BigQuery is a columnar database, and it only scans the specific columns requested in the query. Querying two columns (PULocationID, DOLocationID) requires reading more data than querying one column (PULocationID), leading to a higher estimated number of bytes processed.
-``` SELECT 
+### 3)  BigQuery is a columnar database, and it only scans the specific columns requested in the query. Querying two columns (PULocationID, DOLocationID) requires reading more data than querying one column (PULocationID), leading to a higher estimated number of bytes processed.
+```
+SELECT 
    PULocationID ,DOLocationID
 from `zoomcamp-week3.taxi_tripdata.regular_yellow_tripdata`
 ```
