@@ -80,7 +80,7 @@ This allows BigQuery to query data directly from the storage bucket without impo
 ❌ If queries do not filter or group by clustered columns.
 
 
-### 9) 0 bytes, 
+### 9) Bonus: 0 bytes, 
 ### BigQuery Query Optimization (Metadata-only Query)
 BigQuery does not scan data for certain queries like COUNT(*) on native tables.
 BigQuery stores metadata (e.g., row count) separately and fetches it without scanning actual data.
