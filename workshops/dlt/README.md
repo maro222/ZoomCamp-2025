@@ -2,8 +2,9 @@
 
 * 1)dlt version: 1.6.1
  
-* 2) ```
-      @dlt.resource(name="rides")   
+* 2)
+```
+@dlt.resource(name="rides")   
 def ny_taxi():
     client = RESTClient(
         base_url="https://us-central1-dlthub-analytics.cloudfunctions.net",
@@ -14,8 +15,8 @@ def ny_taxi():
     )
 
     for page in client.paginate("data_engineering_zoomcamp_api"):
-        yield page   
-  ```
+        yield page
+```
 
 
 * 3) 10000
