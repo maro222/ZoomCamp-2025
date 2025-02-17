@@ -1,6 +1,6 @@
 # Solutions
 
-* 1)dlt version: 1.6.1
+* 1) dlt version: 1.6.1
  
 * 2)
 ```
